@@ -1,0 +1,87 @@
+=======================================
+=======    VIRGO API ver 5.0    =======
+=======    data: 2013-09-03     =======
+=======================================
+
+Aktualizacja wprowadza powa¿ne zmiany w strukturze bazy danych, klas oraz plików. Umo¿liwi to efektywniejsze korzystanie z API.
+
+Zmiana metod synchronicacji na obs³uge poprzez serwer dedykowany eksportowy.
+
+MODU£ VIRGO v.5.0:
+
+	-liczne zmiany optymalizacyjne w³aœciwoœci ofert.
+	
+	-rezygnacja z nieoptymalnych metod wyszukiwania (multiproperies)
+
+
+
+=======================================
+=======    VIRGO API ver 4.0.1  =======
+=======    data: 2012-08-27     =======
+=======================================
+
+MODU£ VIRGO v.4.0.1:
+
+	- przywrocono funkcjonalnosc listy ofert w demie
+	
+	- Poprawiono wywo³anie konstruktora Oferty w WebServiceVirgo::GetOffersPartial
+
+	- dodano filtr 'hasUwagiOpis' w metodach Offers::PrepareFilters() i Offers::GetQuery()
+
+	- poprawiono metodê Webservice::GetOffersPartial() - warunek ustawienia opcji zamiana
+	
+	- poprawiono filtr iloœci piêter w budynku 
+
+	- poprawiono metodê prepareSort()
+
+	- dodano nowe metody w klasie Offers:
+		* Offers::GetOffersMinMaxPrice()
+		* Offers::GetOffersMinMaxRoomsNo()
+		* Offers::GetOffersMinMaxPriceSquare()
+		* Offers::GetOffersMinMaxArea()
+		* Offers::GetOffersLocations()
+		* Offers::GetOffersQuarters()
+
+	- poprawiono metody klasy Offers:
+		* Offers::GetFieldDestinyLocations()
+		* Offers::GetPremisesDestinyLocations()
+		* Offers::GetHallDestinyLocations()
+
+	- dodano parametr $buildingtypes w metodzie klasy virgoApi:
+		* VirgoAPI::GetQuarters()
+	
+MODU£ WEB v.1.0.1:
+	- poprawiona metoda Opcje::LoadOpcje() - zmiana katalogu odczytu pliku opcje_cache.bin z VIRGO_API_DIR na WEB_API_DIR
+
+
+=======================================
+=======    VIRGO API ver 4.0    =======
+=======    data: 2012-06-28     =======
+=======================================
+Aktualizacja wprowadza powa¿ne zmiany w strukturze bazy danych, klas oraz plików. Umo¿liwi to efektywniejsze korzystanie z API.
+
+ZMIANY GLOBALNE:
+	- Do komunikacji PHP z baz¹ danych zosta³a u¿yta biblioteka PDO
+	
+	- Zosta³ wydzielony modu³ zarz¹dzaj¹cy CMS (katalog web_api) oraz modu³ zarz¹dzaj¹cy ofertami biur nieruchomoœci (katalog virgo_api)
+	
+	- Zmianom uleg³a tak¿e zawartoœæ oraz lokalizacja pliku config.php. Od teraz znajduje siê on w '/web_api/config.php'
+			* zosta³ dodany wpis informuj¹cy o jaki modu³ ma zostaæ rozszerzony modu³ WEB
+			* zmienna $VirgoKey zosta³a zast¹piona zmienna $WebKey. Zmianie uleg³a tylko nazwa, funkcjonalnoœæ pozosta³a taka sama.
+
+MODU£ VIRGO v.4.0:
+
+	- Zmiana struktury bazy danych, umo¿liwiaj¹ca efektywniejsze wyszukiwanie ofert wg zadanych kryteriów
+			* modyfikacja tabeli 'offers' - czêœæ w³aœciwoœci oferty zosta³a przeniesiona z tabeli 'offers_properties' do 'offers'
+			* utworzenie tabeli 'offers_multi_properties'
+			* UWAGA! Oferta specjalna sygnowana jest teraz wartoœci¹ '1' w polu 'first_page', w tabeli 'offers'. Wczeœniej wartoœæ tej w³aœciwoœci znajdowa³a siê w tabeli 'offers_properties'
+			
+	- Zmianom uleg³a te¿ synchronizacja ofert. Od teraz mechanizm synchronizuj¹cy mo¿e przetwarzaæ wiêksz¹ iloœæ ofert jednorazowo.
+
+	- Poprawiona zosta³a synchronizacja ofert sprzedanych i z podpisan¹ umow¹.
+
+	- Zmieniona zosta³a metoda pobierania grafik z ofert.
+	
+MODU£ WEB v.1.0:
+
+
